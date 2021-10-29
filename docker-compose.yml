@@ -1,0 +1,17 @@
+version: '3'
+
+services: 
+  webhtmlnginx:
+    build: .
+    ports: 
+      - 8081:8080
+  redis:
+    image: redis:alpine
+    ports: 
+      - 6379
+  nginx:
+    image: nginx
+    volumes: 
+      - ./nginx:/usr/share/nginx/html
+    ports: 
+      - 8080:80
